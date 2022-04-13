@@ -8,6 +8,7 @@
  */
 
 #include <common.h>
+#include <command.h>
 #include <dm.h>
 #include <env.h>
 #include <errno.h>
@@ -1010,3 +1011,12 @@ U_BOOT_DEVICE(am335x_mmc1) = {
 	.platdata = &am335x_mmc1_platdata,
 };
 #endif
+
+static int do_prussc(cmd_tbl *cmdtp, int flag, int argc, char * const argv[]) {
+	return 0;
+}
+
+U_BOOT_CMD(prussc, 6, 1, do_prussc, "set PRU Spread Spectrum Clocking",
+	   "<n> <m> <m2> <freq_div> <delta_m>\n"
+	   "    - Set PRU Spread Spectrum Clocking parameters. All values\n"
+       "      are in hex.\n");
