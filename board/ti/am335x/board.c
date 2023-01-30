@@ -1032,3 +1032,20 @@ U_BOOT_CMD(prussc, 6, 1, do_prussc, "set PRU Spread Spectrum Clocking",
 	   "<n> <m> <m2> <freq_div> <delta_m>\n"
 	   "    - Set PRU Spread Spectrum Clocking parameters. All values\n"
        "      are in hex.\n");
+
+static int do_pruboot(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
+{
+	if (argc == 2) {
+		u32 pru_num;
+
+		pru_num = simple_strtoul(argv[1], NULL, 16);
+		boot_pru(pru_num);
+	} else {
+		return CMD_RET_USAGE;
+	}
+	return 0;
+}
+
+U_BOOT_CMD(pruboot, 2, 1, do_pruboot, "boot a PRU",
+	   "<pru_num>\n"
+	   "    - Boot specified PRU.\n");

@@ -178,7 +178,8 @@ struct cm_perpll {
 	unsigned int epwmss2clkctrl;	/* offset 0xD8 */
 	unsigned int l3instrclkctrl;	/* offset 0xDC */
 	unsigned int l3clkctrl;		/* Offset 0xE0 */
-	unsigned int resv8[2];
+	unsigned int resv8;
+	unsigned int pruicssclkctrl;/* offset 0xE8 */
 	unsigned int timer5clkctrl;	/* offset 0xEC */
 	unsigned int timer6clkctrl;	/* offset 0xF0 */
 	unsigned int mmc1clkctrl;	/* offset 0xF4 */
